@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  version: 0.0.1
+  title: Benchmark web frameworks with in differents languages
+  description: small description for test
+
+servers:
+  - url: http://localhost:3000
+
+tags:
+  - name: Health
+  - name: Note
+
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      responses:
+        "200":
+          description: ok
+          
+  /note:
+    post:
+      tags:
+        - Note
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNote'
+      responses:
+        "201":
+          description: Note created 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    description: uuid of the note
+    get:
+      tags:
+        - Note
+      security:
+        - ApiKeyAuth: []
+      responses:
+        "200":
+          description: list of all notes
+          
+  /note/{id}:
+    get:
+      tags:
+        - Note
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: get the note
+          
+components:
+  schemas:
+    CreateNote:
+      type: object
+      properties:
+        title:
+          type: string
+          description: title for the note
+        content:
+          type: string
+          description: content of the note
+          
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: userid
+      description: Email of the user to make fake auth, this will be passed in the header as `userid`

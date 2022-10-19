@@ -3,6 +3,8 @@
 I'm trying to do a simple test, just a run some benchmark in different frameworks/langauges and all be running in docker.  
 So to run the benchmark I'm going to use [Locust](https://locust.io/) a python load testing tool.
 
+The projects will have the same endpoints, you can take a look to the [open-api](./open-api.spec.yaml) specification
+
 ### Folders
 - node-fastify => Fastify nodejs project [Readme](./node-fastify/Readme.md)
 - locust => Locust load test tool [Readme](./locust/Readme.md)
@@ -26,7 +28,7 @@ To run the test, first you need to run **One** project and then run the load tes
 docker build --no-cache --tag node-fastify ./node-fastify
 
 # Run docker
-docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api node-fastify
+docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name node-fastify node-fastify
 ```
 
 **Locust:**
