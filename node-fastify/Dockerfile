@@ -2,12 +2,12 @@
 FROM node:alpine3.16 AS build-project
 WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY ./package.json ./
+COPY ./package-lock.json ./
 RUN npm ci
 
 COPY ./src ./src
-COPY tsconfig.json ./
+COPY ./tsconfig.json ./
 
 ENV NODE_ENV production
 RUN npm run build
