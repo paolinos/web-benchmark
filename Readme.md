@@ -6,9 +6,9 @@ So to run the benchmark I'm going to use [Locust](https://locust.io/) a python l
 The projects will have the same endpoints, you can take a look to the [open-api](./open-api.spec.yaml) specification
 
 ### Folders
-- node-fastify => Fastify nodejs project [Readme](./node-fastify/Readme.md)
 - locust => Locust load test tool [Readme](./locust/Readme.md)
-
+- node-fastify => Fastify nodejs project [Readme](./node-fastify/Readme.md)
+- dotnet => C# .net core 6 [Readme](./net-core/Readme.md)
 
 ### Settings
 Before to start running the different project you need to have installed [Docker](https://www.docker.com/) and then you can create:
@@ -31,6 +31,15 @@ docker build --no-cache --tag node-fastify ./node-fastify
 docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name node-fastify node-fastify
 ```
 
+- dotnet:
+```bash
+# Build node-fastify project
+docker build --no-cache --tag net-core ./net-core
+
+# Run docker
+docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name net-core net-core
+```
+
 **Locust:**
 for more info about locust settings please take a look to the [Readme](./locust/Readme.md)
 
@@ -38,5 +47,5 @@ for more info about locust settings please take a look to the [Readme](./locust/
 # Remember docker volume
 #   $(pwd) => Linux/Unix
 #   ${PWD} => Powershell - Windows
-docker container run --rm -p 8089:8089 --network=dev-network -w /locust -v ${PWD}/locust:/locust locustio/locust -f api-benchmark.py --headless --users 100 --spawn-rate 10 -t 60s -H http://api:3000
+docker container run --rm -p 8089:8089 --network=dev-network --name locust -w /locust -v ${PWD}/locust:/locust locustio/locust -f api-benchmark.py --headless --users 100 --spawn-rate 10 -t 60s -H http://api:3000
 ```
