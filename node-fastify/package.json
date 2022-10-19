@@ -1,0 +1,21 @@
+{
+  "name": "ts-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "ts-node ./src/main.ts",
+    "build": "tsc",
+    "start": "node ./dist/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
