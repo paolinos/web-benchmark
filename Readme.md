@@ -40,6 +40,15 @@ docker build --no-cache --tag net-core ./net-core
 docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name net-core net-core
 ```
 
+- node-express:
+```bash
+# Build node-fastify project
+docker build --no-cache --tag node-express ./node-express
+
+# Run docker
+docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name node-express node-express
+```
+
 **Locust:**
 for more info about locust settings please take a look to the [Readme](./locust/Readme.md)
 
