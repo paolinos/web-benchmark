@@ -1,0 +1,8 @@
+[default]
+address = "0.0.0.0"
+port = 3000
+#log_level = "normal"
+#log_level = "off"
+
+[release]
+log_level = "critical"
