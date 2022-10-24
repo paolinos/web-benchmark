@@ -5,10 +5,14 @@ So to run the benchmark I'm going to use [Locust](https://locust.io/) a python l
 
 The projects will have the same endpoints, you can take a look to the [open-api](./open-api.spec.yaml) specification
 
+**Results:** You can find the results in the [Result](./Result.md) file.  
+ 
+
 ### Folders
 - locust => Locust load test tool [Readme](./locust/Readme.md)
 - node-fastify => Fastify nodejs project [Readme](./node-fastify/Readme.md)
 - dotnet => C# .net core 6 [Readme](./net-core/Readme.md)
+- rust-rocket => Rust using Rocket framework [Readme](./rust-rocket/Readme.md)
 
 ### Settings
 Before to start running the different project you need to have installed [Docker](https://www.docker.com/) and then you can create:
