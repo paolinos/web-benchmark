@@ -12,4 +12,5 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine3.16
 WORKDIR /app
 COPY --from=build-project /app/out .
+EXPOSE 3000
 ENTRYPOINT ["dotnet", "netcore.dll"]
