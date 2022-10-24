@@ -49,6 +49,15 @@ docker build --no-cache --tag node-express ./node-express
 docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name node-express node-express
 ```
 
+- rust-rocket:
+```bash
+# Build node-fastify project
+docker build --no-cache --tag rust-rocket ./rust-rocket
+
+# Run docker
+docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name rust-rocket rust-rocket
+```
+
 **Locust:**
 for more info about locust settings please take a look to the [Readme](./locust/Readme.md)
 
@@ -57,4 +66,7 @@ for more info about locust settings please take a look to the [Readme](./locust/
 #   $(pwd) => Linux/Unix
 #   ${PWD} => Powershell - Windows
 docker container run --rm -p 8089:8089 --network=dev-network --name locust -w /locust -v ${PWD}/locust:/locust locustio/locust -f api-benchmark.py --headless --users 100 --spawn-rate 10 -t 60s -H http://api:3000
+
+# Unix version
+docker container run --rm -p 8089:8089 --network=dev-network --name locust -w /locust -v $(pwd)/locust:/locust locustio/locust -f api-benchmark.py --headless --users 100 --spawn-rate 10 -t 60s -H http://api:3000
 ```
