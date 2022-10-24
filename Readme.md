@@ -10,8 +10,9 @@ The projects will have the same endpoints, you can take a look to the [open-api]
 
 ### Folders
 - locust => Locust load test tool [Readme](./locust/Readme.md)
-- node-fastify => Fastify nodejs project [Readme](./node-fastify/Readme.md)
-- dotnet => C# .net core 6 [Readme](./net-core/Readme.md)
+- node-fastify => Nodejs using Fastify framework [Readme](./node-fastify/Readme.md)
+- node-express => Nodejs using Express framework [Readme](./node-express/Readme.md)
+- dotnet => C# .Net Core 6 [Readme](./net-core/Readme.md)
 - rust-rocket => Rust using Rocket framework [Readme](./rust-rocket/Readme.md)
 - rust-actix => Rust usin Actix framework [Readme](./rust-actix/Readme.md)
 
