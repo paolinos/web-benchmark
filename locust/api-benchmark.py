@@ -4,7 +4,8 @@ from datetime import datetime
 from locust import HttpUser, task, between
 
 class QuickstartUser(HttpUser):
-    wait_time = between(1, 5)
+    # disable wait time to run test
+    #wait_time = between(1, 2)
     id_notes = itertools.count(0,1)
 
     def on_start(self):
