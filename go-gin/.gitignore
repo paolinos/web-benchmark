@@ -1,2 +1,2 @@
 *.test
-go.work
+./go-gin

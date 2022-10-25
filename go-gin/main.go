@@ -1,8 +1,8 @@
 package main
 
 import (
-	"go-gin/routes"
 	"fmt"
+	"go-gin/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,17 +13,16 @@ func main() {
 	//Running in "debug" mode. Switch to "release" mode in production.
 	gin.SetMode(gin.ReleaseMode)
 
-	router := gin.Default()
-	router.POST("", routes.CreateNote)
-	router.GET("", routes.GetAll)
-	router.GET("/:id", routes.GetById)
+	// Defult have logger
+	//router := gin.Default()
+	router := gin.New()
 
-	/*
-		linkGroup := router.Group("/note")
-		linkGroup.POST("", Get)
-		linkGroup.GET("", Post)
-		linkGroup.GET("/:id", GetById)
-	*/
+	router.GET("/health", routes.GetHealth)
+
+	linkGroup := router.Group("/note")
+	linkGroup.POST("", routes.CreateNote)
+	linkGroup.GET("", routes.GetAll)
+	linkGroup.GET("/:id", routes.GetById)
 
 	router.Run(fmt.Sprintf("0.0.0.0:%d", port))
 }
