@@ -14,7 +14,8 @@ The projects will have the same endpoints, you can take a look to the [open-api]
 - node-express => Nodejs using Express framework [Readme](./node-express/Readme.md)
 - dotnet => C# .Net Core 6 [Readme](./net-core/Readme.md)
 - rust-rocket => Rust using Rocket framework [Readme](./rust-rocket/Readme.md)
-- rust-actix => Rust usin Actix framework [Readme](./rust-actix/Readme.md)
+- rust-actix => Rust using Actix framework [Readme](./rust-actix/Readme.md)
+- go-gin -> Golang using Gin framework [Readme](./go-gin/Readme.md)
 
 ### Settings
 Before to start running the different project you need to have installed [Docker](https://www.docker.com/) and then you can create:
@@ -71,6 +72,15 @@ docker build --no-cache --tag rust-actix ./rust-actix
 
 # Run docker
 docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name rust-actix rust-actix
+```
+
+- go-gin:
+```bash
+# Build node-fastify project
+docker build --no-cache --tag go-gin ./go-gin
+
+# Run docker
+docker container run -it --rm --network=dev-network -p 3000:3000 --net-alias api --name go-gin go-gin
 ```
 
 **Locust:**
