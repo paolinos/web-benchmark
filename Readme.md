@@ -1,9 +1,13 @@
 # Web benchmark
 
-I'm trying to do a simple test, just a run some benchmark in different frameworks/langauges and all be running in docker.  
-So to run the benchmark I'm going to use [Locust](https://locust.io/) a python load testing tool.
+I'm trying to do a simple test, just a run some benchmark in different frameworks/langauges and all be running in Docker.  
+So to run the benchmark I'm using [Locust](https://locust.io/) a python load testing tool.
 
 The projects will have the same endpoints, you can take a look to the [open-api](./open-api.spec.yaml) specification
+So for benchmark we're going to use:
+- GET /health => return json
+- POST /note => create a new Note and save it in the dictionary for the user (check header validation **open-api** file)
+- GET /note => get all notes for the user (check header validation **open-api** file)
 
 **Results:** You can find the results in the [Result](./Result.md) file.  
  
